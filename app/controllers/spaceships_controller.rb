@@ -2,7 +2,6 @@ class SpaceshipsController < ApplicationController
 
   def index
     @spaceships = Spaceship.all
-    p Spaceship.all
   end
 
   def show
