@@ -1,0 +1,11 @@
+<h1>All ships go here</h1>
+<% @spaceships.each do |ship| %>
+<%= ship.photo %>
+<%= ship.name %>
+<%= ship.armaments %>
+<%= ship.description %>
+<% end %>
+
+<%= @spaceships[1].name %>
+
+<%= link_to "create new", new_spaceship_path %>
