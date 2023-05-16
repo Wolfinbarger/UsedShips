@@ -1,0 +1,16 @@
+<%= simple_form_for @spaceship do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :speed %>
+    <%= f.input :location %>
+    <%= f.input :photo, as: :file %>
+    <%= f.input :rate %>
+    <%= f.input :features %>
+    <%= f.input :armaments %>
+    <%= f.input :ship_model %>
+    <%= f.input :crew %>
+    <%= f.input :size %>
+    <%= f.input :max_weight %>
+    <%= f.input :language %>
+    <%= f.submit %>
+<% end %>
