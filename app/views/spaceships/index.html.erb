@@ -1,11 +1,8 @@
 <h1>All ships go here</h1>
 <% @spaceships.each do |ship| %>
-<%= ship.photo %>
-<%= ship.name %>
-<%= ship.armaments %>
-<%= ship.description %>
+  <%= image_tag ship.photo.attached? ? cl_image_path(ship.photo.key) : "https://www.freepnglogos.com/uploads/film-reel-png/film-reel-png-film-strip-border-transparent-film-strip-border-5.png", class: "image" %>
+  <%= ship.name %>
+  <%= ship.armaments %>
+  <%= ship.description %>
 <% end %>
-
-<%= @spaceships[1].name %>
-
 <%= link_to "create new", new_spaceship_path %>
