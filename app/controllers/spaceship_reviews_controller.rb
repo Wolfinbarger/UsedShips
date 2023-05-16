@@ -2,12 +2,14 @@ class SpaceshipReviewsController < ApplicationController
   def new
     @spaceship = Spaceship.find(params[:spaceship_id])
     @review = SpaceshipReview.new
+    @user = current_user
   end
 
   def create
     @spaceship = Spaceship.find(params[:spaceship_id])
     @review = SpaceshipReview.new(spaceship_review_params)
     @review.spaceship = @spaceship
+    @review.user = current_user
 
     if @review.save
       redirect_to spaceship(@spaceship)
@@ -26,6 +28,6 @@ class SpaceshipReviewsController < ApplicationController
   private
 
   def spaceship_review_params
-    require(:spaceship_review).permit(:comment, :spaceship_id, :user_id)
+    require(:spaceship_review).permit(:comment, :spaceship_id)
   end
 end

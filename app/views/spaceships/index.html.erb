@@ -1,6 +1,6 @@
 <h1>All ships go here</h1>
 <% @spaceships.each do |ship| %>
-  <%= image_tag ship.photo.attached? ? cl_image_path(ship.photo.key) : "https://www.freepnglogos.com/uploads/film-reel-png/film-reel-png-film-strip-border-transparent-film-strip-border-5.png", class: "image" %>
+  <%= image_tag ship.photo.attached? ? cl_image_path(ship.photo.key) : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_6Kb1Nk-BCQBd5z3tp3_91peh72eJ9lihZw&usqp=CAU", class: "image" %>
   <%= ship.name %>
   <%= ship.armaments %>
   <%= ship.description %>
