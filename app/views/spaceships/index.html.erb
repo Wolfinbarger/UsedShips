@@ -4,5 +4,6 @@
   <%= ship.name %>
   <%= ship.armaments %>
   <%= ship.description %>
+  <%= link_to 'check out this ship', spaceship_path(ship), class: "btn btn_primary" %>
 <% end %>
 <%= link_to "create new", new_spaceship_path %>

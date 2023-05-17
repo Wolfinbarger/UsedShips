@@ -1,1 +1,2 @@
-<h1>A ship goes here</h1>
+<h1><%= @spaceship.name %></h1>
+<%= link_to "Book this Ship", new_spaceship_booking_path(@spaceship) %>
