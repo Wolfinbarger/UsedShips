@@ -1,8 +1,98 @@
-<h1>All ships go here</h1>
-<% @spaceships.each do |ship| %>
-  <%= image_tag ship.photo.attached? ? cl_image_path(ship.photo.key) : "https://www.freepnglogos.com/uploads/film-reel-png/film-reel-png-film-strip-border-transparent-film-strip-border-5.png", class: "image" %>
-  <%= ship.name %>
-  <%= ship.armaments %>
-  <%= ship.description %>
-<% end %>
-<%= link_to "create new", new_spaceship_path %>
+<div class="container">
+<div class="d-flex justify-content-between" style="background-image: url(https://img.freepik.com/free-photo/starry-night-sky_1048-11828.jpg);">
+ <div id = "border" class = "border border-info" ><h1 class = "Lines m-0 p-2">Block Used Spaceship Emporium</h1> </div>
+<div id = "border" class = "border border-info w-25 text-center" > <h1 class = "Lines m-0 p-2">Type here...</h1> </div>
+<div class = "" ><h1 class= "lines_ m-0 p-2"> Log in / Create account </h1> </div>
+</div>
+<div class="container">
+<div class="d-flex justify-content-between">
+<button id ="button" type="button" class="btn btn-info">Model</button>
+<button id ="button" type="button" class="btn btn-info">Capacity</button>
+<button id ="button" type="button" class="btn btn-info">High Price</button>
+<button id ="button" type="button" class="btn btn-info">Low Price</button>
+<button id ="button" type="button" class="btn btn-info">Armaments</button>
+<button id ="button" type="button" class="btn btn-info">Top Speed</button>
+<button id ="button" type="button" class="btn btn-info">Low Speed</button>
+<button id ="button" type="button" class="btn btn-info">Weight</button>
+</div>
+</div>
+
+<div class="container">
+<div class="d-flex justify-content-between">
+<div id = "border" class = "border border-info" >
+<div class="card bg-transparent" style="width: 18rem;">
+  <img class="card-img-top border border-info p-2" src="https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C31%2C1600%2C800" alt="Card image cap">
+
+<div class="card-body pb-0 px-0">
+  <% @spaceships.each do |e| %>
+    <div class="container px-2">
+        <div class="d-flex justify-content-between p-0"> <h5 class=""><%=e.name%></h5>
+          <h5 class="">★<%=e.name%></h5>
+        </div>
+    </div>
+  <div class="container px-1">
+    <div id = "border" class="d-flex justify-content-between p-1 border border-info">  <h5 class=""><%=e.description%></h5>
+       <h5 class=""><%=e.rate%></h5>
+       </div>
+      </div>
+    </div>
+  </div>
+       <% end %>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+</div>
+</div>
+
+<div class="container">
+<div class="d-flex justify-content-between">
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+</div>
+</div>
+<body style = "background-image: url(https://img.freepik.com/free-photo/starry-night-sky_1048-11828.jpg);">
+</body>
+</div>
