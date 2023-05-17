@@ -7,9 +7,9 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    @spaceship = Spaceship.find(params[:spaceship_id])
     @user = current_user
+    @spaceship = Spaceship.find(params[:spaceship_id])
+    @booking = Booking.new(booking_params)
     @booking.spaceship = @spaceship
     @booking.user = @user
     if @booking.save
@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
-    @booking.destroys
+    @booking.destroy
     redirect_to spaceship_path(@booking.spaceship), status: :see_other
   end
 
