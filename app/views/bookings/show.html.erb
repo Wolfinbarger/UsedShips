@@ -4,3 +4,5 @@
 <p><%= @spaceship.description %></p>
 <p><%= "Your booking is #{@booking.start_date} until #{@booking.end_date}" %></p>
 <p><%= "The total price is: s$ #{((@booking.end_date - @booking.start_date) * @spaceship.rate).to_i}" %></p>
+<%= link_to 'Cancel Booking', spaceship_booking_path(@booking), data: { turbo_method: :destroy, turbo_confirm: 'Cancel Booking?' }, class: "btn btn-danger"%>
+<%= link_to 'home', spaceships_path, class: "btn btn-success" %>
