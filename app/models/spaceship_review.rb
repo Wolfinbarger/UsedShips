@@ -1,5 +1,5 @@
 class SpaceshipReview < ApplicationRecord
-  belongs_to :spaceship_id
-  belongs_to :user_id
+  belongs_to :spaceship
+  belongs_to :user
   validates :comment, presence: true
 end
