@@ -1,8 +1,9 @@
 <h1>All ships go here</h1>
 <% @spaceships.each do |ship| %>
-  <%= image_tag ship.photo.attached? ? cl_image_path(ship.photo.key) : "https://www.freepnglogos.com/uploads/film-reel-png/film-reel-png-film-strip-border-transparent-film-strip-border-5.png", class: "image" %>
+  <%= image_tag ship.photo.attached? ? cl_image_path(ship.photo.key) : "https://preview.redd.it/a-photo-of-a-monkey-astronaut-floating-in-space-v0-x6ep8rm9ntf91.png?width=640&crop=smart&auto=webp&s=dfb7a68f9b398395a2a9b113391d2917e12ba416", class: "image" %>
   <%= ship.name %>
   <%= ship.armaments %>
   <%= ship.description %>
+  <%= link_to 'check out this ship', spaceship_path(ship), class: "btn btn_primary" %>
 <% end %>
 <%= link_to "create new", new_spaceship_path %>

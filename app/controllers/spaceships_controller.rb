@@ -2,11 +2,11 @@ class SpaceshipsController < ApplicationController
 
   def index
     @spaceships = Spaceship.all
-    p Spaceship.all
   end
 
   def show
     @spaceship = Spaceship.find(params[:id])
+    @booking = Booking.new
     # authorize(@spaceship)
   end
 

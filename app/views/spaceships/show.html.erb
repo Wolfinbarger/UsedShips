@@ -1,40 +1,48 @@
+<%# <%= link_to "Book this Ship", new_spaceship_booking_path(@spaceship) %>
 <body style = "background-image: url(https://img.freepik.com/free-photo/starry-night-sky_1048-11828.jpg);">
   <div class="container">
-    <h1><%= @spaceship.name %></h1>
-    <h2>review</h2>
-    <h2>price</h2>
-    <p>description</p>
-  </div>
-  <ul class="list-group">
-    <%= @spaceship.description %>
-  </ul>
-  <div class="d-flex justify-content-evenly">
-    <div id ="round-border" class="fs-4 border border-info text-info px-4 py-2">
-      Max weight
-      <i class="fa-solid fa-weight-scale"></i>
-      <%= @spaceship.max_weight %>
-      Ton
-    </div>
-    <div class="fs-4 border border-info rounded text-info px-4 py-2">
-      Capacity
-      <i class="fa-solid fa-people-group"></i>
-      <%= @spaceship.crew %>
-      people
-    </div>
-    <div class="fs-4 border border-info rounded text-info px-4 py-2">
-      Location
-      <i class="fa-solid fa-location-dot"></i>
-      <%= @spaceship.location %>
-    </div>
-    <div class="fs-4 border border-info rounded text-info px-4 py-2">
-      ¥
-      <%= @spaceship.rate %>
-      / day
+    <h1 class="text-info pt-4"><%= @spaceship.name %></h1>
+    <div class="d-flex justify-content-between">
+      <div class="border border-info d-flex pt-3 pb-3 ps-3">
+        <%= cl_image_tag @spaceship.photo.key, height: 300, width: 400, crop: :fill %>
+        <div class="ps-3">
+          <%= @spaceship.description %>
+          <div class="d-flex justify-content-evenly p-2">
+            <div id ="border" class="fs-5 border border-info text-info px-4 py-2 m-1">
+              Max weight<br>
+              <i class="fa-solid fa-weight-scale"></i>
+              <%= @spaceship.max_weight %>
+              Ton
+            </div>
+            <div id ="border" class="fs-5 border border-info text-info px-4 py-2 m-1">
+              Capacity<br>
+              <i class="fa-solid fa-people-group"></i>
+              <%= @spaceship.crew %>
+              people
+            </div>
+            <div id ="border" class="fs-5 border border-info text-info px-4 py-2 m-1">
+              Location<br>
+              <i class="fa-solid fa-location-dot"></i>
+              <%= @spaceship.location %>
+            </div>
+            <div id ="border" class="fs-5 border border-info text-info px-4 py-2 m-1">
+              Price<br>
+              ¥
+              <%= @spaceship.rate %>
+              / day
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= simple_form_for [@spaceship,@booking] do |f| %>
+        <%= f.input :start_date, html5: true  %>
+        <%= f.input :end_date, html5: true  %>
+        <%= f.submit class: "btn btn-info"  %>
+      <% end %>
     </div>
   </div>
 </div>
-<div class="float-end">
-  <button id="button" type="button" class="btn btn-warning">Add to the booking</button>
+<div class="d-flex justify-content-evenly">
 </div>
 </body>
 <%# ボタンを作る ボタンの場所を動かしたい　ブートストラップ%>
