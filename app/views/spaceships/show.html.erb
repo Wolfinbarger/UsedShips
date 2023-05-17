@@ -1,8 +1,13 @@
 <div class="container">
   <h1 class="text-info pt-4"><%= @spaceship.name %></h1>
   <div class="d-flex justify-content-between">
-    <div id="border" class="border border-info d-flex pt-3 pb-3 ps-3">
-      <%= cl_image_tag @spaceship.photo.key, height: 300, width: 400, crop: :fill %>
+    <div id="border" class="border border-info d-flex pt-3 pb-3 ps-3 me-3">
+      <% if @spaceship.photo.attached? %>
+        <%= cl_image_tag @spaceship.photo.key, height: 300, width: 400, crop: :fill %>
+      <% else %>
+        <%= image_tag "https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C31%2C1600%2C800", class: "card-img-top border border-info p-2", height: 200, width: 400 %>
+        <%# <img width="400" class="card-img-top border border-info p-2" src="https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C31%2C1600%2C800" alt="Card image cap"> %>
+      <% end %>
       <div class="ps-3">
         <%= @spaceship.description %>
         <div class="d-flex justify-content-evenly p-2">
