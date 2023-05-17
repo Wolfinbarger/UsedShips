@@ -5,11 +5,17 @@ class BookingsController < ApplicationController
     @spaceship = Spaceship.find(params[:spaceship_id])
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+    @spaceship = Spaceship.find(params[:spaceship_id])
+  end
+
   def create
     @spaceship = Spaceship.find(params[:spaceship_id])
     @booking = Booking.new(booking_params)
     @booking.spaceship = @spaceship
     @booking.user = current_user
+    @booking.total_price = ((@booking.end_date - @booking.start_date) * @spaceship.rate).to_i
     if @booking.save
       redirect_to spaceship_booking_path(@spaceship, @booking)
     else
