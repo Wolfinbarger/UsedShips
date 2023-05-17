@@ -1,6 +1,7 @@
 <div class="container">
-    <div class="cards pt-5">
-      <% @spaceships.each do |e| %>
+  <div class="cards pt-5">
+    <% @spaceships.each do |e| %>
+      <%= link_to spaceship_path(e), class:"card-link" do  %>
         <div class="card bg-transparent border border-info" style="width: 18rem;">
           <% if e.photo.attached? %>
             <%= cl_image_tag e.photo.key, alt: "text" %>
@@ -23,5 +24,6 @@
           </div>
         </div>
       <% end %>
-    </div>
+    <% end %>
   </div>
+</div>
