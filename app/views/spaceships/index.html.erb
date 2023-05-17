@@ -1,9 +1,26 @@
-<h1>All ships go here</h1>
-<% @spaceships.each do |ship| %>
-  <%= image_tag ship.photo.attached? ? cl_image_path(ship.photo.key) : "https://preview.redd.it/a-photo-of-a-monkey-astronaut-floating-in-space-v0-x6ep8rm9ntf91.png?width=640&crop=smart&auto=webp&s=dfb7a68f9b398395a2a9b113391d2917e12ba416", class: "image" %>
-  <%= ship.name %>
-  <%= ship.armaments %>
-  <%= ship.description %>
-  <%= link_to 'check out this ship', spaceship_path(ship), class: "btn btn_primary" %>
-<% end %>
-<%= link_to "create new", new_spaceship_path %>
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <div id = "border" class = "border border-info" >
+      <h1 class = "Lines m-0 p-2">Block Used Spaceship Emporium</h1>
+    </div>
+    <div id = "border" class = "border border-info w-25 text-center" >
+      <h1 class = "Lines m-0 p-2">Type here...</h1>
+    </div>
+    <div class = "" >
+      <h1 class= "lines_ m-0 p-2"> Log in / Create account </h1>
+    </div>
+  </div>
+  <div class="container">
+    <div class="d-flex justify-content-between">
+      <button id ="button" type="button" class="btn btn-info">Model</button>
+      <button id ="button" type="button" class="btn btn-info">Capacity</button>
+      <button id ="button" type="button" class="btn btn-info">High Price</button>
+      <button id ="button" type="button" class="btn btn-info">Low Price</button>
+      <button id ="button" type="button" class="btn btn-info">Armaments</button>
+      <button id ="button" type="button" class="btn btn-info">Top Speed</button>
+      <button id ="button" type="button" class="btn btn-info">Low Speed</button>
+      <button id ="button" type="button" class="btn btn-info">Weight</button>
+    </div>
+  </div>
+  <%= render "components/card" %>
+</div>
