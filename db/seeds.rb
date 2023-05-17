@@ -8,9 +8,9 @@
 users = []
 ships = []
 
-User.destroy_all
 Spaceship.destroy_all
 Booking.destroy_all
+User.destroy_all
 
 10.times do
   user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password)
