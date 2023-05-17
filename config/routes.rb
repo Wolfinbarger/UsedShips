@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :spaceships do
-    resources :bookings, :spaceship_reviews, only: %i[new create edit destroy]
+    resources :bookings
+    resources :spaceship_reviews, only: %i[new create edit destroy]
   end
 end
