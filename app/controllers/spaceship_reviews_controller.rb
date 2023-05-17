@@ -1,7 +1,6 @@
 class SpaceshipReviewsController < ApplicationController
   def new
     @spaceship = Spaceship.find(params[:spaceship_id])
-    @user = User.find(current_user.id)
     @spaceship_review = SpaceshipReview.new
   end
 
@@ -19,6 +18,7 @@ class SpaceshipReviewsController < ApplicationController
   end
 
   def edit
+    @spaceship_review = SpaceshipReview.find(params[:id])
   end
 
   def destroy
