@@ -1,0 +1,6 @@
+<h1>Here's your booking</h1>
+<h3><%= @spaceship.name %></h3>
+<%= image_tag @spaceship.photo %>
+<p><%= @spaceship.description %></p>
+<p><%= "Your booking is #{@booking.start_date} until #{@booking.end_date}" %></p>
+<p><%= "The total price is: s$ #{((@booking.end_date - @booking.start_date) * @spaceship.rate).to_i}" %></p>

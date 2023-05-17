@@ -1,22 +1,24 @@
 class SpaceshipReviewsController < ApplicationController
   def new
-    @review = SpaceshipReview.new
-    @spaceship = Spaceship.new
+    @spaceship = Spaceship.find(params[:spaceship_id])
+    @spaceship_review = SpaceshipReview.new
   end
 
   def create
     @spaceship = Spaceship.find(params[:spaceship_id])
-    @review = SpaceshipReview.new(spaceship_review_params)
-    @review.spaceship = @spaceship
+    @spaceship_review = SpaceshipReview.new(spaceship_review_params)
+    @spaceship_review.spaceship = @spaceship
+    @spaceship_review.user = current_user
 
-    if @review.save
-      redirect_to spaceship(@spaceship)
+    if @spaceship_review.save
+      redirect_to spaceships_path
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
+    @spaceship_review = SpaceshipReview.find(params[:id])
   end
 
   def destroy
@@ -26,6 +28,6 @@ class SpaceshipReviewsController < ApplicationController
   private
 
   def spaceship_review_params
-    require(:spaceship_review).permit(:comment, :spaceship_id, :user_id)
+    params.require(:spaceship_review).permit(:comment, :spaceship_id, :user_id)
   end
 end
