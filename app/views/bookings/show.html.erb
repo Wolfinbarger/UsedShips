@@ -1,8 +1,8 @@
-<div class="ps-3 pt-3">
+<div class="ps-3 pt-3 text-info">
   <h1>Here's your booking</h1>
   <h3><%= @spaceship.name %></h3>
 </div>
-<div class="container">
+<div class="container text-info">
   <div class="d-flex justify-content-between">
     <div class="d-flex pt-3 pb-3">
       <%= cl_image_tag @spaceship.photo.key, height: 300, width: 400, crop: :fill %>
@@ -21,6 +21,6 @@
   </div>
   <div>
     <%= link_to 'Cancel Booking', spaceship_booking_path(@booking), data: { turbo_method: :destroy, turbo_confirm: 'Cancel Booking?' }, class: "btn btn-danger"%>
-    <%= link_to 'home', spaceships_path, class: "btn btn-success" %>
+    <%= link_to 'home', spaceships_path, class: "btn btn-info" %>
   </div>
 </div>
