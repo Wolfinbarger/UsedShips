@@ -4,37 +4,38 @@
     <h2>review</h2>
     <h2>price</h2>
     <p>description</p>
-    <ul class="list-group">
-      <%= @spaceship.description %>
-    </ul>
-    <div class="d-flex justify-content-evenly">
-      <div class="fs-4 border border-info rounded text-info px-4 py-2">
-        Max weight
-        <i class="fa-solid fa-weight-scale"></i>
-        <%= @spaceship.max_weight %>
-        Ton
-      </div>
-      <div class="fs-4 border border-info rounded text-info px-4 py-2">
-        Capacity
-        <i class="fa-solid fa-people-group"></i>
-        <%= @spaceship.crew %>
-        people
-      </div>
-      <div class="fs-4 border border-info rounded text-info px-4 py-2">
-        Location
-        <i class="fa-solid fa-location-dot"></i>
-        <%= @spaceship.location %>
-      </div>
-      <div class="fs-4 border border-info rounded text-info px-4 py-2">
-        ¥
-        <%= @spaceship.rate %>
-        / day
-      </div>
+  </div>
+  <ul class="list-group">
+    <%= @spaceship.description %>
+  </ul>
+  <div class="d-flex justify-content-evenly">
+    <div id ="round-border" class="fs-4 border border-info text-info px-4 py-2">
+      Max weight
+      <i class="fa-solid fa-weight-scale"></i>
+      <%= @spaceship.max_weight %>
+      Ton
+    </div>
+    <div class="fs-4 border border-info rounded text-info px-4 py-2">
+      Capacity
+      <i class="fa-solid fa-people-group"></i>
+      <%= @spaceship.crew %>
+      people
+    </div>
+    <div class="fs-4 border border-info rounded text-info px-4 py-2">
+      Location
+      <i class="fa-solid fa-location-dot"></i>
+      <%= @spaceship.location %>
+    </div>
+    <div class="fs-4 border border-info rounded text-info px-4 py-2">
+      ¥
+      <%= @spaceship.rate %>
+      / day
     </div>
   </div>
-  <div class="float-end">
-    <button type="button" class="btn btn-warning">Add to the booking</button>
-  </div>
+</div>
+<div class="float-end">
+  <button id="button" type="button" class="btn btn-warning">Add to the booking</button>
+</div>
 </body>
 <%# ボタンを作る ボタンの場所を動かしたい　ブートストラップ%>
 <%# 予約用のフォームを作る AirBみたいなやつ　simple_form%>
