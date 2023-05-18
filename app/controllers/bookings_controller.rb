@@ -1,4 +1,8 @@
 class BookingsController < ApplicationController
+  def index
+    @bookings = Booking.where(user_id: current_user)
+    @spaceships = Spaceship.where(id: @bookings.each(&:spaceship_id))
+  end
 
   def new
     @booking = Booking.new

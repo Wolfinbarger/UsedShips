@@ -1,0 +1,6 @@
+<% @bookings.each_with_index do |booking, index| %>
+  <%= index%> <%=')'%>
+  <%= booking.user_id  %>
+  <%= booking.spaceship_id %>
+  <% @spaceships %>
+<% end %>
