@@ -1,31 +1,42 @@
-<div class="ps-3 pt-3 text-info">
-  <h1>Here's your booking</h1>
-  <h3><%= @spaceship.name %></h3>
-</div>
-<div class="container text-info">
-  <div class="d-flex justify-content-between">
-    <div class="d-flex pt-3 pb-3">
-      <% if @spaceship.photo.attached? %>
-        <%= cl_image_tag @spaceship.photo.key, height: 300, width: 400, crop: :fill %>
-      <% else %>
-        <%= image_tag "https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C31%2C1600%2C800", class: "card-img-top border border-info p-2", height: 200, width: 400 %>
-        <%# <img width="400" class="card-img-top border border-info p-2" src="https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C31%2C1600%2C800" alt="Card image cap"> %>
-      <% end %>
-      <div class="d-flex flex-column bd-highlight mb-3">
-        <div class="p-2 bd-highlight">
-          <p><%= @spaceship.description %></p>
+<%= render "components/navbar" %>
+<div id="border" class="ps-3 pt-3 mt-4 pb-4 text-info border border-info">
+  <div class="container text-info">
+    <div class = "container" >
+      <h3 style="text-decoration: underline;" class="mb-0 text-capitalize"><%= @spaceship.name %></h3>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div id = "border" class="d-grid p-3 border border-info">
+        <div class="border border-info mb-3"><% if @spaceship.photo.attached? %>
+            <%= cl_image_tag @spaceship.photo.key, height: 260, width: 410, crop: :fill %>
+          <% else %>
+            <%= image_tag "https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C31%2C1600%2C800", class: "border border-info mb-3", height: 260, width: 410 %>
+          <% end %>
         </div>
-        <div class="p-2 bd-highlight">
-          <p><%= "Your booking is #{@booking.start_date} until #{@booking.end_date}" %></p>
+        <div id ="border" class="d-flex flex-column bd-highlight mb-0 p-0 border border-info">
+          <div class="p-2 bd-highlight">
+            <h2> Shipment Information </h2>
+            <p><%= @spaceship.description %></p>
+          </div>
+          <div class="p-2 bd-highlight">
+            <p><%= "Your booking is #{@booking.start_date} until #{@booking.end_date}" %></p>
+          </div>
+          <div class="p-2 bd-highlight">
+            <p><%= "The total price is: $ #{((@booking.end_date - @booking.start_date) * @spaceship.rate).to_i}" %></p>
+          </div>
         </div>
+      </div>
+      <div id = "border" class="d-grid p-3 mx-4 border border-info">
         <div class="p-2 bd-highlight">
-          <p><%= "The total price is: $ #{((@booking.end_date - @booking.start_date) * @spaceship.rate).to_i}" %></p>
+          <h1> Order Confirmation </h1>
+        </div>
+        <div class = "container" >
+          <h1> Order Confirmation </h1>
         </div>
       </div>
     </div>
-  </div>
-  <div>
-    <%= link_to 'Cancel Booking', spaceship_booking_path(@booking), data: { turbo_method: :destroy, turbo_confirm: 'Cancel Booking?' }, class: "btn btn-danger"%>
-    <%= link_to 'home', spaceships_path, class: "btn btn-info" %>
+    <div>
+    </div>
+    <%=link_to 'Cancel Booking', spaceship_booking_path(@booking), id: "button", data: { turbo_method: :destroy, turbo_confirm: 'Cancel Booking?' }, class: "btn btn-danger mx-0 mt-3 mb-3"%>
+    <%= link_to 'home', spaceships_path, class: "btn btn-info mx-3", id: "button_" %>
   </div>
 </div>

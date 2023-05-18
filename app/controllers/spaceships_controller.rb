@@ -10,7 +10,7 @@ class SpaceshipsController < ApplicationController
     @booking = Booking.new
     # authorize(@spaceship)
   end
-
+  
   def new
     @spaceship = Spaceship.new
     # authorize(@spaceship)
