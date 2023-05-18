@@ -1,42 +1,46 @@
-<%= render "components/navbar" %>
-<div id="border" class="ps-3 pt-3 mt-4 pb-4 text-info border border-info">
-  <div class="container text-info">
-    <div class = "container" >
-      <h3 style="text-decoration: underline;" class="mb-0 text-capitalize"><%= @spaceship.name %></h3>
-    </div>
-    <div class="d-flex justify-content-between">
-      <div id = "border" class="d-grid p-3 border border-info">
-        <div class="border border-info mb-3"><% if @spaceship.photo.attached? %>
-            <%= cl_image_tag @spaceship.photo.key, height: 260, width: 410, crop: :fill %>
-          <% else %>
-            <%= image_tag "https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C31%2C1600%2C800", class: "border border-info mb-3", height: 260, width: 410 %>
-          <% end %>
+<%= render "components/navbar"  %>
+<div class="d-flex">
+  <div id="border" class="responsive border border-info container text-info px-3 pt-2" style = "flex:0.75;margin-left:110px;margin-bottom:50px;">
+    <h3 style="text-decoration: underline;"><%= @spaceship.name %></h3>
+    <div class="">
+      <div class="">
+        <% if @spaceship.photo.attached? %>
+          <%= cl_image_tag @spaceship.photo.key, height: 300  , width: 400, crop: :fill %>
+        <% else %>
+          <%= image_tag "https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C31%2C1600%2C800", class: "card-img-top border border-info p-2", height: 300, width: 400 %>
+          <%# <img width="400" class="card-img-top border border-info p-2" src="https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C31%2C1600%2C800" alt="Card image cap"> %>
+        <% end %>
+        <div class="d-flex flex-column bd-highlight mb-3 pt-2 mt-2">
+          <div id="border" class="border border-info p-2 bd-highlight">
+            <p style="text-decoration:underline;">Description:</p>
+ <%= @spaceship.description %></p>
         </div>
-        <div id ="border" class="d-flex flex-column bd-highlight mb-0 p-0 border border-info">
-          <div class="p-2 bd-highlight">
-            <h2> Shipment Information </h2>
-            <p><%= @spaceship.description %></p>
+        <div class ="border border-info p-3 mt-3" id ="border">
+          <div class="p-0 bd-highlight">
+            <p style = "margin-bottom:0px;"><%= "Your booking is from #{@booking.start_date} until #{@booking.end_date}" %></p>
           </div>
-          <div class="p-2 bd-highlight">
-            <p><%= "Your booking is #{@booking.start_date} until #{@booking.end_date}" %></p>
-          </div>
-          <div class="p-2 bd-highlight">
-            <p><%= "The total price is: $ #{((@booking.end_date - @booking.start_date) * @spaceship.rate).to_i}" %></p>
+          <div class="d-flex p-0 bd-highlight">
+            <p style = "margin-bottom:0px;">
+              <p style="text-decoration:underline;font-size:20px;">THE TOTAL PRICE IS:  </p>
+
+              <p style="margin-left:15px;font-size:20px;">$ <%="#{((@booking.end_date - @booking.start_date) * @spaceship.rate).to_i}" %></p>
+            </div>
           </div>
         </div>
       </div>
-      <div id = "border" class="d-grid p-3 mx-4 border border-info">
-        <div class="p-2 bd-highlight">
-          <h1> Order Confirmation </h1>
-        </div>
-        <div class = "container" >
-          <h1> Order Confirmation </h1>
-        </div>
-      </div>
     </div>
-    <div>
-    </div>
-    <%=link_to 'Cancel Booking', spaceship_booking_path(@booking), id: "button", data: { turbo_method: :destroy, turbo_confirm: 'Cancel Booking?' }, class: "btn btn-danger mx-0 mt-3 mb-3"%>
-    <%= link_to 'home', spaceships_path, class: "btn btn-info mx-3", id: "button_" %>
   </div>
+  <div class ="container" style="flex:1;margin-right:80px;">
+    <div class = "text-center pt-3">
+      <h2 style="text-decoration: underline;"> Order Confirmation </h2>
+    </div>
+    <div class = "text-center pt-3" style="margin-top:60px;">
+      <h2> Payment options </h2>
+    </div>
+    <div class="d-flex justify-content-center"><button id="button" type="button" class="btn btn-info" style="width:450px;"><i class="fa-brands fa-ethereum" style="margin-right:15px;"></i>Spice</button> </div>
+    <div class="d-flex justify-content-center"><button id="button" type="button" class="btn btn-info" style="width:450px;"><i class="fa-brands fa-ethereum" style="margin-right:5px;"></i>Credits</button> </div>
+    <div class="d-flex justify-content-center"><button id="button" type="button" class="btn btn-info" style="width:450px;"><i class="fa-brands fa-ethereum" style="margin-right:2px;"></i>Latinum</button> </div>
+    <div class="d-flex justify-content-center"><button id="button" type="button" class="btn btn-info" style="margin-top:80px;width:450px;"><i class="fa-solid fa-cash-register"style="margin-right:10px;"></i>Confirm</button> </div>
+  </div>
+</div>
 </div>
