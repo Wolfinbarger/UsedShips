@@ -1,27 +1,23 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <%# if user_signed_in? %>
-
-          <li class="nav-item dropdown">
-            <%= image_tag asset_path('blork.png'), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to 'Home', spaceships_path, class:'dropdown-item' %>
-              <%= link_to '$$$Rent through us$$$', new_spaceship_path, class:"dropdown-item" %>
-
-              <% if user_signed_in? %>
-                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class:"nav-link" %>
-              <% else %>
-                <%= link_to "Login", new_user_session_path,class:"nav-link" %>
-              <% end %>
-            </div>
-          </li>
+        <li class="nav-item dropdown">
+          <%= image_tag asset_path('blork.png'), class: "avatar avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <%= link_to 'Home', spaceships_path, class:'dropdown-item' %>
+            <%= link_to '$$$Rent through us$$$', new_spaceship_path, class:"dropdown-item" %>
+            <% if user_signed_in? %>
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class:"nav-link" %>
+            <% else %>
+              <%= link_to "Login", new_user_session_path,class:"nav-link" %>
+            <% end %>
+          </div>
+        </li>
       </ul>
     </div>
   </div>

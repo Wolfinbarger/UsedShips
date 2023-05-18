@@ -1,15 +1,11 @@
 <div class="container">
   <div class="d-flex justify-content-between">
     <div id = "border" class="d-flex align-items-center border border-info p-0" >
-<%= image_tag asset_path('blork.png'), class:"avatar", style:"
+      <%= image_tag asset_path('blork.png'), class:"avatar", style:"
     width: 35px;
     height: 45px; margin-left:5px;"%>
       <h1 class = "lines m-0 p-3">Blork's Used Spaceship Emporium</h1>
     </div>
-    <%= link_to '$$$Rent through us$$$', new_spaceship_path, class:"border border-info p-0" %>
-    <%# <div id = "border" class = "border border-info p-0" >
-      <h1 class = "lines m-0 p-3">$$$Rent through us$$$</h1>
-    </div> %>
     <div id = "border" class = "border border-info w-25 text-center" >
       <%= form_with url: spaceships_path, method: :get, class: "d-flex p-2 " do %>
         <%= text_field_tag :query,
@@ -20,12 +16,6 @@
         <input type="submit" value="&#xf002;" style="background-color: transparent; border-color: transparent;" class="fa-solid fa-magnifying-glass text-info">
       <% end %>
     </div>
-    <div class = "" >
-      <% if user_signed_in? %>
-        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
-      <% else %>
-        <%= link_to "Login", new_user_session_path %>
-      <% end %>
-    </div>
+    <%= render 'components/navdropdown' %>
   </div>
 </div>
