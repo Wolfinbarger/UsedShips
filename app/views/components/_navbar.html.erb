@@ -1,21 +1,28 @@
 <div class="container">
   <div class="d-flex justify-content-between">
     <div id = "border" class = "border border-info p-0" >
-      <h1 class = "lines m-0 p-3">Blork Used Spaceship Emporium</h1>
-
+      <h1 class = "lines m-0 p-3">Blork's Used Spaceship Emporium</h1>
     </div>
+    <%= link_to '$$$Rent through us$$$', new_spaceship_path, class:"border border-info p-0" %>
+    <%# <div id = "border" class = "border border-info p-0" >
+      <h1 class = "lines m-0 p-3">$$$Rent through us$$$</h1>
+    </div> %>
     <div id = "border" class = "border border-info w-25 text-center" >
-      <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get">
-        <div class="search-form-control form-group">
-          <input id = "border" class="form-control string required bg-transparent border border-info" placeholder = "Type here..." type="text" name="search[query]" id="search_query" />
-          <button name="button" type="submit" class="btn btn-flat">
-            <i class="fas fa-search text-color"></i>
-          </button>
-        </div>
-      </form>
+      <%= form_with url: spaceships_path, method: :get, class: "d-flex p-2 " do %>
+        <%= text_field_tag :query,
+            params[:query],
+            class: "form-control string required bg-transparent border-0 text-info search-form-input",
+            placeholder: "Type a keyword"
+        %>
+        <input type="submit" value="&#xf002;" style="background-color: transparent; border-color: transparent;" class="fa-solid fa-magnifying-glass text-info">
+      <% end %>
     </div>
-    <div class="d-flex align-items-center p-0" >
-      <h1 class= "lines_ m-2"> Log in / Create account </h1>
-       <i class="fa-regular fa-circle-user text-info"></i>
+    <div class = "" >
+      <% if user_signed_in? %>
+        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
+      <% else %>
+      <%= link_to "Login", new_user_session_path %>
+      <% end %>
     </div>
   </div>
+</div>
