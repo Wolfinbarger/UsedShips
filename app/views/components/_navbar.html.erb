@@ -14,6 +14,10 @@
 </form>
     </div>
     <div class = "" >
-      <h1 class= "lines_ m-0 pt-3"> Log in / Create account </h1>
+      <% if user_signed_in? %>
+        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
+      <% else %>
+      <%= link_to "Login", new_user_session_path %>
+      <% end %>
     </div>
   </div>
