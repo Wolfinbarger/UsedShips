@@ -1,4 +1,12 @@
 class BookingsController < ApplicationController
+  def index
+    @spaceships = []
+    @bookings = Booking.where(user_id: current_user)
+    @bookings.each do |booking|
+      @spaceships << Spaceship.where(id: booking.spaceship_id)
+    end
+    @spaceships.flatten!
+  end
 
   def new
     @booking = Booking.new

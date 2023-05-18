@@ -1,16 +1,39 @@
-<%= simple_form_for @spaceship do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :speed %>
-    <%= f.input :location %>
-    <%= f.input :photo, as: :file %>
-    <%= f.input :rate %>
-    <%= f.input :features %>
-    <%= f.input :armaments %>
-    <%= f.input :ship_model %>
-    <%= f.input :crew %>
-    <%= f.input :size %>
-    <%= f.input :max_weight %>
-    <%= f.input :language %>
-    <%= f.submit %>
-<% end %>
+<div class="new-ship-over">
+  <div class='new-ship-card'>
+    <%= simple_form_for @spaceship do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description, as: :text %>
+        <%= f.input :speed, as: :range, input_html:{ min:"200", max:"100000", oninput:"updateTextInput(this.value)"}%>
+          <input type="text" id="textInput" value="">
+            <script>
+              function updateTextInput(val) {
+                        document.getElementById('textInput').value=val;
+                      }
+            </script>
+        <%= f.input :location %>
+        <%= f.input :photo, as: :file %>
+        <%= f.hint "How much will you charge per day? Blork takes a 40% cut of all profits." %>
+        <%= f.input :rate %>
+        <%= f.input :features %>
+        <%= f.input :armaments %>
+        <%= f.input :ship_model %>
+        <%= f.input :crew, as: :range, input_html:{ min:"1", max:"1000000", oninput:"updateCrew(this.value)"}%>
+          <input type="text" id="crew" value="">
+            <script>
+              function updateCrew(val) {
+                        document.getElementById('crew').value=val;
+                      }
+            </script>
+        <%= f.input :size %>
+        <%= f.input :max_weight, as: :range, input_html:{ min:"10", max:"100000", oninput:"updateMaxWeight(this.value)"}%>
+          <input type="text" id="max_weight" value="">
+            <script>
+              function updateMaxWeight(val) {
+                        document.getElementById('max_weight').value=val;
+                      }
+            </script>
+        <%= f.input :language, collection: ['English', 'Galactic Standard', 'Klingon', 'Aurebesh'], prompt: "Select primary language", selected: "English" %>
+        <%= f.submit %>
+  <% end %>
+  </div>
+</div>
