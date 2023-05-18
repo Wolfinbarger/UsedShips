@@ -1,56 +1,60 @@
+<%= render "components/navbar" %>
 <div class="container">
-  <h1 class="text-info pt-4"><%= @spaceship.name %></h1>
+  <h1 class="text-info pt-4" style ="text-decoration: underline;"><%= @spaceship.name %></h1>
   <div class="d-flex justify-content-between">
-    <div id="border" class="border border-info d-flex pt-3 pb-3 ps-3 me-3">
-      <% if @spaceship.photo.attached? %>
-        <%= cl_image_tag @spaceship.photo.key, height: 300, width: 400, crop: :fill %>
-      <% else %>
-        <%= image_tag "https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C31%2C1600%2C800", class: "card-img-top border border-info p-2", height: 200, width: 400 %>
-        <%# <img width="400" class="card-img-top border border-info p-2" src="https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C31%2C1600%2C800" alt="Card image cap"> %>
-      <% end %>
-      <div class="ps-3">
-        <%= @spaceship.description %>
-        <div class="d-flex justify-content-evenly p-2">
-          <div id ="border" class="fs-5 border border-info text-info px-4 py-2 m-1">
-            Max weight<br>
-            <i class="fa-solid fa-weight-scale"></i>
-            <%= @spaceship.max_weight %>
-            Ton
+    <div id="border" class="border border-info d-grid pb-2 pt-2 me-3" style="flex: 2;padding-right: 0px;padding-left: 8px;">
+      <div id ="border" class = "m-2 d-flex" style="padding-right: 0px;margin-right: 0px;padding-top: 0px;">
+        <div id="border" class ="">
+          <% if @spaceship.photo.attached? %>
+            <%= cl_image_tag @spaceship.photo.key, height: 260, width: 410, crop: :fill %>
+          <% else %>
+            <%= image_tag "https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C31%2C1600%2C800", class: "border border-info mb-3", height: 260, width: 410 %>
+          <% end %>
+        </div>
+        <div style="margin-left: 16px;padding-right: 0px;">
+          <div class = "d-flex">
+            <div id="border" class="border border-info text-info px-4 py-2 m-1" style="flex:1;">
+              <p class="text-nowrap" style ="text-decoration: underline;">Max weight <i class="fa-solid fa-weight-scale"> : </i></p>
+              <p class ="text-nowrap">   <%= @spaceship.max_weight %> Ton </p>
+            </div>
+            <div id="border" class="border border-info text-info px-4 py-2 m-1" style="flex:1;">
+              <p class="text-nowrap" style ="text-decoration: underline;">Capacity <i class="fa-solid fa-people-group"> : </i>
+                <p class ="text-nowrap"> <%= @spaceship.crew %> people </p>
+              </div>
+            </div>
+            <div class = "d-flex justify-content-between">
+              <div id="border" class="border border-info text-info px-4 py-2 m-1" style="flex:1;">
+                <p class="text-nowrap" style ="text-decoration: underline;">Location <i class="fa-solid fa-location-dot"> : </i>
+                  <p class = "text-nowrap" > <%= @spaceship.location %> </p>
+                </div>
+                <div id="border" class="border border-info text-info px-4 py-2 m-1" style="flex:1;">
+                  <p class="text-nowrap" style ="text-decoration: underline;">Price $: </p>
+                  <p class = "text-nowrap"> <%= @spaceship.rate %> / day </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div id ="border" class="fs-5 border border-info text-info px-4 py-2 m-1">
-            Capacity<br>
-            <i class="fa-solid fa-people-group"></i>
-            <%= @spaceship.crew %>
-            people
+          <div id = "border" class="border border-info p3" style="
+    margin-right: 8px;">
+            <div class = "p-2">
+              <%= @spaceship.description %>
+            </div>
           </div>
-          <div id ="border" class="fs-5 border border-info text-info px-4 py-2 m-1">
-            Location<br>
-            <i class="fa-solid fa-location-dot"></i>
-            <%= @spaceship.location %>
-          </div>
-          <div id ="border" class="fs-5 border border-info text-info px-4 py-2 m-1">
-            Price<br>
-            $
-            <%= @spaceship.rate %>
-            / day
-          </div>
+        </div>
+        <div class="text-info" style ="flex: 1;margin-left:25px;">
+          <h3 class="text-center" style="margin-right:115px;margin-bottom:25px;">Book now!</h3>
+          <%= simple_form_for [@spaceship, @booking] do |f| %>
+            <div class="text-center" style = "width:75%;margin-bottom:40px;"><%= f.input :start_date, html5: true, input_html: { style: "margin-top: -30px;" } %></div>
+            <div class="text-center" style = "width:75%;"><%= f.input :end_date, html5: true, input_html: { style: "margin-top: -30px;" } %></div>
+            <div class="text-center" style="margin-right:100px;margin-top:50px;"><%= f.submit class: "btn btn-info", id: "button"%> </div>
+          <% end %>
         </div>
       </div>
     </div>
-    <div class="text-info">
-      <h3>Book now!</h3>
-      <%= simple_form_for [@spaceship, @booking] do |f| %>
-        <%= f.input :start_date, html5: true, input_html: { style: "margin-top: -30px;" } %>
-        <%= f.input :end_date, html5: true, input_html: { style: "margin-top: -30px;" } %>
-        <%= f.submit class: "btn btn-info", id: "button"%>
-      <% end %>
-    </div>
   </div>
-</div>
-</div>
-<%# ボタンを作る ボタンの場所を動かしたい　ブートストラップ%>
-<%# 予約用のフォームを作る AirBみたいなやつ　simple_form%>
-<%# 背景画像が黒だから、文字色を変えたい > このファイルとSCSSを繋ぐ方法がわからない%>
-<%# componentとHTMLに直書きするコードの違いがわからない
+  <%# ボタンを作る ボタンの場所を動かしたい　ブートストラップ%>
+  <%# 予約用のフォームを作る AirBみたいなやつ　simple_form%>
+  <%# 背景画像が黒だから、文字色を変えたい > このファイルとSCSSを繋ぐ方法がわからない%>
+  <%# componentとHTMLに直書きするコードの違いがわからない
 componentで再利用したいやつを個別HTMLに反映する方法がわからない %>
-<%# _card.htmlファイルを書く > このファイルをindexに加える > Livecodeを参考にする %>
+  <%# _card.htmlファイルを書く > このファイルをindexに加える > Livecodeを参考にする %>
