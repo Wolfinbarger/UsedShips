@@ -6,7 +6,11 @@
     </div>
     <div class="d-flex justify-content-between">
       <div id = "border" class="d-grid p-3 border border-info">
-        <div class="border border-info mb-3"><%= cl_image_tag @spaceship.photo.key, height: 300, width: 400, crop: :fill %>
+        <div class="border border-info mb-3"><% if @spaceship.photo.attached? %>
+            <%= cl_image_tag @spaceship.photo.key, height: 260, width: 410, crop: :fill %>
+          <% else %>
+            <%= image_tag "https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C31%2C1600%2C800", class: "border border-info mb-3", height: 260, width: 410 %>
+          <% end %>
         </div>
         <div id ="border" class="d-flex flex-column bd-highlight mb-0 p-0 border border-info">
           <div class="p-2 bd-highlight">
@@ -22,9 +26,9 @@
         </div>
       </div>
       <div id = "border" class="d-grid p-3 mx-4 border border-info">
-        <div class="p-2 bd-highlight"> 
+        <div class="p-2 bd-highlight">
           <h1> Order Confirmation </h1>
- </div>
+        </div>
         <div class = "container" >
           <h1> Order Confirmation </h1>
         </div>
