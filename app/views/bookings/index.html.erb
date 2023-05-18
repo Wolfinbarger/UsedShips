@@ -1,6 +1,8 @@
 <% @bookings.each_with_index do |booking, index| %>
   <%= index%> <%=')'%>
-  <%= booking.user_id  %>
-  <%= booking.spaceship_id %>
-  <% @spaceships %>
+  <%= 'User:'  %><%= booking.user_id %>
+  <%= 'Spaceship ID:' %> <%= booking.spaceship_id %>
+  <% spaceship = @spaceships.select { |ship| ship.id == booking.spaceship_id } %>
+  <%= spaceship[0].name %>
+  <br>
 <% end %>

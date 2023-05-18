@@ -1,7 +1,11 @@
 class BookingsController < ApplicationController
   def index
+    @spaceships = []
     @bookings = Booking.where(user_id: current_user)
-    @spaceships = Spaceship.where(id: @bookings.each(&:spaceship_id))
+    @bookings.each do |booking|
+      @spaceships << Spaceship.where(id: booking.spaceship_id)
+    end
+    @spaceships.flatten!
   end
 
   def new
