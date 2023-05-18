@@ -22,3 +22,11 @@
 .form-container > h2 {
   font-weight: bold;
 }
+
+.new-ship {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 750px;
+}

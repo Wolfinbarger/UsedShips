@@ -1,5 +1,6 @@
 <div class="new-ship-over">
   <div class='new-ship-card'>
+    <h2>Add a spaceship</h2>
     <%= simple_form_for @spaceship do |f| %>
       <%= f.input :name %>
       <%= f.input :description, as: :text %>
@@ -33,7 +34,7 @@
                 }
       </script>
       <%= f.input :language, collection: ['English', 'Galactic Standard', 'Klingon', 'Aurebesh'], prompt: "Select primary language", selected: "English" %>
-      <%= f.submit, id: 'button' %>
+      <%= f.submit class: "button" %>
     <% end %>
   </div>
 </div>
