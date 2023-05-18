@@ -4,16 +4,17 @@
       <h1 class = "lines m-0 p-3">Blork Used Spaceship Emporium</h1>
     </div>
     <div id = "border" class = "border border-info w-25 text-center" >
-<form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get">
-  <div class="search-form-control form-group">
-    <input id = "border" class="form-control string required bg-transparent border border-info" placeholder = "Type here..." type="text" name="search[query]" id="search_query" />
-    <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search text-color"></i>
-    </button>
-  </div>
-</form>
+      <%= form_with url: spaceships_path, method: :get, class: "d-flex p-2 " do %>
+        <%= text_field_tag :query,
+            params[:query],
+            class: "form-control string required bg-transparent border-0 text-info search-form-input",
+            placeholder: "Type a keyword"
+        %>
+        <input type="submit" value="&#xf002;" style="background-color: transparent; border-color: transparent;" class="fa-solid fa-magnifying-glass text-info">
+      <% end %>
     </div>
     <div class = "" >
       <h1 class= "lines_ m-0 pt-3"> Log in / Create account </h1>
     </div>
   </div>
+</div>

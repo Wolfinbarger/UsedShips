@@ -8,8 +8,8 @@
 users = []
 ships = []
 
-Spaceship.destroy_all
 Booking.destroy_all
+Spaceship.destroy_all
 User.destroy_all
 
 10.times do
