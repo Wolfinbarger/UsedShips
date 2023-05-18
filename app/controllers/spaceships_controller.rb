@@ -3,6 +3,9 @@ class SpaceshipsController < ApplicationController
 
   def index
     @spaceships = Spaceship.all
+    if params[:query].present?
+      @spaceships = @spaceships.search(params[:query])
+    end
   end
 
   def show
@@ -56,5 +59,4 @@ class SpaceshipsController < ApplicationController
   def spaceship_params
     params.require(:spaceship).permit(:name, :speed, :armaments, :size, :max_weight, :crew, :features, :location, :description, :language, :ship_model, :rate, :photo)
   end
-
 end
