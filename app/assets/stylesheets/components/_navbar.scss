@@ -1,6 +1,10 @@
+.navbar-card {
+  display: flex;
+  justify-content: space-between;
+}
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  z-index: 100;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,9 +13,4 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
-}
-
-.search-form-input::placeholder{
-  color: yellow;
-  opacity: 0.6;
 }
