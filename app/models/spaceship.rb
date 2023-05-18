@@ -6,4 +6,10 @@ class Spaceship < ApplicationRecord
   validates :description, presence: true
   validates :crew, numericality: { only_integer: true }
   validates :max_weight, numericality: { only_integer: true }
+  include PgSearch::Model
+pg_search_scope :search,
+  against: [ :name, :speed, :armaments, :size, :max_weight, :features, :location, :description, :language, :ship_model, :rate ],
+  using: {
+    tsearch: { prefix: true }
+  }
 end

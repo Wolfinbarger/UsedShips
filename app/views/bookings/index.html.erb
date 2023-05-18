@@ -1,8 +1,20 @@
-<% @bookings.each_with_index do |booking, index| %>
-  <%= index%> <%=')'%>
-  <%= 'User:'  %><%= booking.user_id %>
-  <%= 'Spaceship ID:' %> <%= booking.spaceship_id %>
-  <% spaceship = @spaceships.select { |ship| ship.id == booking.spaceship_id } %>
-  <%= spaceship[0].name %>
-  <br>
-<% end %>
+<div class="user-bookings">
+  <h2>Bookings</h2>
+  <% @user_bookings = @bookings.select { |booking| booking.user_id == current_user.id}  %>
+  <% @user_bookings.each_with_index do |booking, index| %>
+    <%= index%> <%=')'%>
+    <%= 'User:'  %><%= booking.user_id %>
+    <%= 'Spaceship ID:' %> <%= booking.spaceship_id %>
+    <% spaceship = @spaceships.select { |ship| ship.id == booking.spaceship_id } %>
+    <%= spaceship[0].name %>
+    <br>
+  <% end %>
+</div>
+<div class="owner-bookigns">
+  <h2>My Booked Spaceshps</h2>
+  <% @owner_bookings = @bookings.select { |booking| Spaceship.find(booking.spaceship_id).user_id == current_user.id}  %>
+  <% @owner_bookings.each_with_index do |booking, index| %>
+    <%= index%> <%=')'%>
+    <%= Spaceship.find(booking.spaceship_id).name %>
+  <% end %>
+</div>
