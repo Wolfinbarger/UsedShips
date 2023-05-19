@@ -1,17 +1,18 @@
-
-#button {
-  background-color: yellow;
-  border-radius: 25px;
-}
-
-#button_ {
+.button_ {
   color: yellow;
   background-color: transparent;
   border-radius: 25px;
 }
 
-#button:hover {
+.button:hover {
   background-color: #FBFFFE;
   border-color: #2AB1F6;
   color: #2AB1F6;
+}
+
+.confirm-button {
+  margin-top: 18px;
+  margin-left: 20px;
+  font-size: medium;
+  letter-spacing: 3px;
 }
