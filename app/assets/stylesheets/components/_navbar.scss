@@ -14,3 +14,17 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.dropdown-menu {
+  background-color: rgba(2, 2, 2, 0.01);
+  border-style: none;
+}
+
+.dropdown-menu .dropdown-item {
+  margin: 8px;
+  background-color: aqua;
+  border-radius: 12px;
+  border-color: black;
+  border-width: 3px;
+  border-style: solid;
+}
