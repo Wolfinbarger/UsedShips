@@ -6,6 +6,22 @@ class SpaceshipsController < ApplicationController
     if params[:query].present?
       @spaceships = @spaceships.search(params[:query])
     end
+    if params[:filter]
+      case params[:filter]
+      when 'Capacity'
+        @spaceships = @spaceships.order(crew: :desc)
+      when 'High Price'
+        @spaceships = @spaceships.order(rate: :desc)
+      when 'Low Price'
+        @spaceships = @spaceships.order(rate: :asc)
+      when 'Top Spead'
+        @spaceships = @spaceships.order(speed: :desc)
+      when 'Low Spead'
+        @spaceships = @spaceships.order(speed: :asc)
+      when 'Max Weight'
+        @spaceships = @spaceships.order(max_weight: :desc)
+      end
+    end
   end
 
   def show
@@ -13,7 +29,7 @@ class SpaceshipsController < ApplicationController
     @booking = Booking.new
     # authorize(@spaceship)
   end
-  
+
   def new
     @spaceship = Spaceship.new
     # authorize(@spaceship)
