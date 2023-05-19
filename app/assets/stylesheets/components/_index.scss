@@ -9,4 +9,19 @@
 @import "cards_show";
 @import "new_ship";
 @import "form";
-@import "tabs"
+@import "tabs";
+
+#button a {
+  text-decoration: none;
+  color: black;
+}
+
+#button a:hover {
+  background-color: #FBFFFE;
+  border-color: #2AB1F6;
+}
+
+#button:hover a {
+  color: #2AB1F6;
+}
+

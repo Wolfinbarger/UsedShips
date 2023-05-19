@@ -2,7 +2,7 @@
   <div class="cards pt-5">
     <% @spaceships.each do |e| %>
       <%= link_to spaceship_path(e), class:"card-link" do  %>
-        <div class="card bg-transparent border border-info" style="width: 18rem;">
+        <div class="card bg-transparent border border-info <% e.language %>" style="width: 18rem;">
           <% if e.photo.attached? %>
             <%= cl_image_tag e.photo.key, alt: "text", style:"width: 280px;height: 225px;"%>
           <% else %>

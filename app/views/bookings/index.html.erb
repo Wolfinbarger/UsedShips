@@ -25,7 +25,9 @@
             <div class="row g-0">
               <div class="col-md-4">
                 <% if booking.spaceship.photo.attached? %>
+
                   <%= cl_image_tag booking.spaceship.photo.key, alt: "text", class: "border border-info img-fluid card-img-full-height", style:"width: 100%;height: 225px;"%>
+
                 <% else %>
                   <img class="card-img-top border border-info p-2 card-img-full-height" src="https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C31%2C1600%2C800" alt="Card image cap" >
                 <% end %>
@@ -55,6 +57,7 @@
               <div class="col-md-4">
                 <% if e.photo.attached? %>
                   <%= cl_image_tag e.photo.key, alt: "text", class: "img-fluid border border-info card-img-full-height", style:"width: 100%;height: 225px;"%>
+
                 <% else %>
                   <img class="card-img-top border border-info p-2 card-img-full-height" src="https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C31%2C1600%2C800" alt="Card image cap" >
                 <% end %>
