@@ -69,3 +69,9 @@
 .text-color {
   color:yellow;
 }
+
+.btn-link {
+  --bs-btn-color: yellow;
+  --bs-btn-hover-color: yellow;
+  --bs-btn-active-color: yellow;
+}
