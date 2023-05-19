@@ -1,13 +1,18 @@
-.button_ {
+#button_ {
   color: yellow;
   background-color: transparent;
   border-radius: 25px;
 }
 
-.button:hover {
+#button:hover {
   background-color: #FBFFFE;
   border-color: #2AB1F6;
   color: #2AB1F6;
+}
+
+#button {
+  background-color: yellow;
+border-radius: 25px;
 }
 
 .confirm-button {
