@@ -1,0 +1,5 @@
+<%= current_user.id %>
+
+<% raise if Spaceship.where(@spaceship.user.id == current_user.id) %>
+  <%= @spaceship.name %>
+<% end %>
