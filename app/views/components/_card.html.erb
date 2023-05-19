@@ -4,21 +4,20 @@
       <%= link_to spaceship_path(e), class:"card-link" do  %>
         <div class="card bg-transparent border border-info <% e.language %>" style="width: 18rem;">
           <% if e.photo.attached? %>
-            <%= cl_image_tag e.photo.key, alt: "text" %>
+            <%= cl_image_tag e.photo.key, alt: "text", style:"width: 280px;height: 225px;"%>
           <% else %>
-            <img class="card-img-top border border-info p-2" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjYAMwk3TdZw2ihAa3UOjkv25yoZkTN5eDqA&usqp=CAU" alt="Card image cap">
+            <img id="asd" class="card-img-top border border-info p-2" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjYAMwk3TdZw2ihAa3UOjkv25yoZkTN5eDqA&usqp=CAU" alt="Card image cap" style="width: 280px;height: 225px;">
           <% end %>
           <div class="card-body pb-0 px-0">
             <div class="container px-2">
               <div class="d-flex justify-content-between p-0">
-                <h5 class="lines"><%=e.name%></h5>
-                <h5 class="lines">★<%=e.name%></h5>
+                <h5 class="lines limited"><%=e.name%></h5>
+                <h5 class="lines"><i class="fa-solid fa-dollar-sign"></i><%=e.rate%></h5>
               </div>
             </div>
             <div class="container px-1">
               <div id = "border" class="d-flex justify-content-between p-1">
                 <h5 class="lines"><%=e.description%></h5>
-                <h5 class="lines"><%=e.rate%></h5>
               </div>
             </div>
           </div>

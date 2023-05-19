@@ -5,9 +5,7 @@
   font-size: 15px;
 }
 
-.lines:hover {
-  color: blue;
-}
+
 
 .lines_ {
   color: yellow;
@@ -21,9 +19,25 @@
 
 }
 
-.border {
-  color: yellow;
+
+.limited {
+  max-height: 2.5em; /* Adjust the desired height for the limited display */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
+
+.expanded {
+  max-height: none !important;
+  white-space: normal;
+  overflow: visible;
+}
+
+.expand-btn {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 
 .search-form-control {
   position: relative;
