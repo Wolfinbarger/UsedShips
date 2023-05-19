@@ -1,16 +1,5 @@
-<div class="navbar-card">
-  <h1 class = "lines m-0 p-3">Blork's Used Spaceship Emporium</h1>
-  <div id = "border" class = "border border-info w-25 text-center" >
-          <%= form_with url: spaceships_path, method: :get, class: "d-flex p-2 " do %>
-            <%= text_field_tag :query,
-                params[:query],
-                class: "form-control string required bg-transparent border-0 text-info search-form-input",
-                placeholder: "Type a keyword"
-            %>
-            <input type="submit" value="&#xf002;" style="background-color: transparent; border-color: transparent;" class="fa-solid fa-magnifying-glass text-info">
-          <% end %>
-    </div>
-    <%= render "components/navdropdown" %>
+
+    <%= render "components/navbar" %>
   </div>
   <div class="container">
     <div class="d-flex justify-content-between">
