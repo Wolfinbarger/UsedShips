@@ -1,0 +1,52 @@
+.tabs-underlined {
+  display: flex;
+  align-items: center;
+}
+
+.tabs-underlined .tab-underlined {
+  color: yellow;
+  padding: 8px;
+  margin: 8px;
+  opacity: .4;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 4px solid transparent;
+}
+
+.tabs-underlined .tab-underlined.active {
+  opacity: 1;
+  border-bottom: 3px solid yellow;
+}
+
+#nav-home-tab .nav-profile-tab .nav-contact-tab {
+  color: yellow !important;
+}
+
+.nav {
+  --bs-nav-link-color: #eafd0d;
+  --bs-nav-link-hover-color: #bfca0a;
+  --bs-nav-tabs-link-active-bg: yellow;
+  --bs-nav-tabs-link-hover-border-color: yellow;
+}
+
+.nav-tabs {
+    --bs-nav-tabs-border-width: 1px;
+    --bs-nav-tabs-border-color: #deec1a;
+    --bs-nav-tabs-border-radius: 2px;
+    --bs-nav-tabs-link-active-color: #cae81b;
+    --bs-nav-tabs-link-active-border-color: yellow;
+      background-color: transparent;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: transparent;
+}
+
+.card {
+  --bs-card-bg: transparent;
+}
+
+.card-img-full-height {
+  height: 100%;
+  object-fit: cover;
+}

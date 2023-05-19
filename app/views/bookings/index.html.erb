@@ -1,14 +1,6 @@
+<%= render "components/navbar"%>
 <div class="user-bookings">
-  <h2>Bookings</h2>
   <% @user_bookings = @bookings.select { |booking| booking.user_id == current_user.id}  %>
-  <% @user_bookings.each_with_index do |booking, index| %>
-    <%= index%> <%=')'%>
-    <%= 'User:'  %><%= booking.user_id %>
-    <%= 'Spaceship ID:' %> <%= booking.spaceship_id %>
-    <% spaceship = @spaceships.select { |ship| ship.id == booking.spaceship_id } %>
-    <%= spaceship[0].name %>
-    <br>
-  <% end %>
 </div>
 <div class="owner-bookigns">
   <h2>My Booked Spaceshps</h2>
@@ -17,4 +9,68 @@
     <%= index%> <%=')'%>
     <%= Spaceship.find(booking.spaceship_id).name %>
   <% end %>
+</div>
+<div class="container my-5">
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Booking List</button>
+      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Spaceships</button>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active my-3" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <div class="card mb-3">
+        <% @user_bookings.each_with_index do |booking, index| %>
+          <div class="border border-info my-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <% if booking.spaceship.photo.attached? %>
+                  <%= cl_image_tag booking.spaceship.photo.key, alt: "text", class: "card-img-full-height"%>
+                <% else %>
+                  <img class="card-img-top border border-info p-2 card-img-full-height" src="https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C31%2C1600%2C800" alt="Card image cap" >
+                <% end %>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <%= 'Spaceship ID:' %> <%= booking.spaceship_id %>
+                    <% spaceship = @spaceships.select { |ship| ship.id == booking.spaceship_id } %>
+                    <%= spaceship[0].name %>
+                    <br>
+                  </h5>
+                  <p class="card-text mt-6"><%= "Your booking is from #{booking.start_date} until #{booking.end_date}" %></p>
+                  <p class="text-nowrap">You have: <%= "#{(booking.end_date - booking.start_date).to_i}"  %> Days Left</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <div class="card mb-3">
+        <% @spaceships.each do |e| %>
+          <div class="border border-info my-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <% if e.photo.attached? %>
+                  <%= cl_image_tag e.photo.key, alt: "text", class: "card-img-full-height"%>
+                <% else %>
+                  <img class="card-img-top border border-info p-2 card-img-full-height" src="https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C31%2C1600%2C800" alt="Card image cap" >
+                <% end %>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <%= e.name%>
+                  </h5>
+                  <p class="card-text"><%= e.description%></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
