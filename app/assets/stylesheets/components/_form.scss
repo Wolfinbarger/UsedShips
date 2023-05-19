@@ -1,0 +1,32 @@
+.sign-in-up {
+  text-decoration: none;
+  color: #10DBF9;
+}
+
+#new_user {
+  margin-bottom: 16px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  border-style: solid;
+  border-color: yellow;
+  padding: 3%;
+  margin-inline: 40%;
+}
+
+.form-container > h2 {
+  font-weight: bold;
+}
+
+.new-ship {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 750px;
+}
