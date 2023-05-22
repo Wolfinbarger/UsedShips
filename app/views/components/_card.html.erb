@@ -2,7 +2,9 @@
   <div class="cards pt-5">
     <% @spaceships.each do |e| %>
       <%= link_to spaceship_path(e), class:"card-link" do  %>
-        <div class="card bg-transparent border border-info <% e.language %>" style="width: 18rem;">
+
+        <div class="card bg-transparent border border-info" style="width: 18rem;height:363px;">
+
           <% if e.photo.attached? %>
             <%= cl_image_tag e.photo.key, alt: "text", style:"width: 280px;height: 225px;"%>
           <% else %>
@@ -11,14 +13,19 @@
           <div class="card-body pb-0 px-0">
             <div class="container px-2">
               <div class="d-flex justify-content-between p-0">
-                <h5 class="lines limited"><%=e.name%></h5>
+                <h5 class="lines"><%=e.name%></h5>
                 <h5 class="lines"><i class="fa-solid fa-dollar-sign"></i><%=e.rate%></h5>
               </div>
             </div>
             <div class="container px-1">
               <div id = "border" class="d-flex justify-content-between p-1">
-                <h5 class="lines"><%=e.description%></h5>
+                <h5 class="lines limited"><%=e.description%></h5>
               </div>
+              <% if e.description.length > 100 %>
+                <div class="text-center mt-2">
+                  <button class="expand-btn btn btn-link"><p style="color:yellow">Read More</p></button>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
