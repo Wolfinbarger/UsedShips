@@ -10,7 +10,7 @@
           <%= image_tag asset_path('blork.png'), class: "avatar avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <%= link_to 'Home', spaceships_path, class:'dropdown-item' %>
-            <%= link_to '$$$Rent through us$$$', new_spaceship_path, class:"dropdown-item" %>
+            <%= link_to '$Make Credits$', new_spaceship_path, class:"dropdown-item" %>
             <% if user_signed_in? %>
               <%= link_to 'My Booking', user_bookings_path(current_user), class:'dropdown-item' %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class:"nav-link dropdown-item" %>
