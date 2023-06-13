@@ -1,23 +1,11 @@
 <div class="container">
   <div class="d-flex justify-content-between">
-    <div id ="button" class="btn btn-info">
-      <%= link_to "High Price", spaceships_path(filter: 'High Price', query: params[:query]) %>
-    </div>
-    <div id ="button" class="btn btn-info">
-      <%= link_to "Low Price", spaceships_path(filter: 'Low Price', query: params[:query]) %>
-    </div>
-    <div id ="button" class="btn btn-info">
-      <%= link_to "Top Speed", spaceships_path(filter: 'Top Speed', query: params[:query]) %>
-    </div>
-    <div id ="button" class="btn btn-info">
-      <%= link_to "Low Speed", spaceships_path(filter: 'Low Speed', query: params[:query]) %>
-    </div>
-    <div id ="button" class="btn btn-info">
-      <%= link_to "Max Weight", spaceships_path(filter: 'Max Weight', query: params[:query]) %>
-    </div>
-    <div id ="button" class="btn btn-info">
-      <%= link_to "Capacity", spaceships_path(filter: 'Capacity', query: params[:query]) %>
-    </div>
+    <%= link_to "High Price", spaceships_path(filter: 'High Price', query: params[:query]), class:"btn btn-info", id:"button" %>
+    <%= link_to "Low Price", spaceships_path(filter: 'Low Price', query: params[:query]), class:"btn btn-info", id:"button" %>
+    <%= link_to "Top Speed", spaceships_path(filter: 'Top Speed', query: params[:query]), class:"btn btn-info", id:"button" %>
+    <%= link_to "Low Speed", spaceships_path(filter: 'Low Speed', query: params[:query]), class:"btn btn-info", id:"button" %>
+    <%= link_to "Max Weight", spaceships_path(filter: 'Max Weight', query: params[:query]), class:"btn btn-info", id:"button" %>
+    <%= link_to "Capacity", spaceships_path(filter: 'Capacity', query: params[:query]), class:"btn btn-info", id:"button" %>
     <button id ="button" type="button" class="btn btn-info">Model</button>
     <button id ="button" type="button" class="btn btn-info">Armaments</button>
   </div>
