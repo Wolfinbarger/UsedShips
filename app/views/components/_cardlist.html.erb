@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="cards pt-5">
+    <% @spaceships.each do |spaceship| %>
+      <%= render "components/card", spaceship: spaceship %>
+    <% end %>
+  </div>
+</div>
