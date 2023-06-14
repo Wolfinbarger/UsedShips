@@ -6,3 +6,21 @@
 .border:hover{
   outline-color: rgb(12, 247, 247);
 }
+
+.spaceship-card-border {
+  border-color: yellow;
+
+  &:hover {
+    border-color: rgb(12, 247, 247);
+    box-shadow: 0px 0px 16px 16px rgba(12, 247, 247, 0.3);
+
+  }
+
+  &:hover .card-body div h5{
+    color: rgb(12, 247, 247);
+  }
+
+  &:hover .card-body div div button{
+    color: rgb(12, 247, 247);
+  }
+}
