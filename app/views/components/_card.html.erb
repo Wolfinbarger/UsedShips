@@ -1,3 +1,4 @@
+
 <div class="spaceship-card-border spaceship-card card bg-transparent">
   <%= link_to spaceship_path(spaceship), class:"card-link" do  %>
     <% if spaceship.photo.attached? %>
@@ -14,6 +15,7 @@
         <h5 class="lines"><%= spaceship.name %></h5>
         <h5 class="lines"><i class="fa-solid fa-dollar-sign"></i><%= spaceship.rate %></h5>
         <%# </div> %>
+
       </div>
       <div class="container px-1">
         <div class="d-flex justify-content-between p-1">
