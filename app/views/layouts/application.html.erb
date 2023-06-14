@@ -10,10 +10,8 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
-  <canvas id="stars"></canvas>
+  <canvas id="stars" class="scroll-box"></canvas>
     <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
   </body>
 </html>

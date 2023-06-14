@@ -6,7 +6,14 @@
   justify-items: center;
 }
 
-
+.scroll-box {
+  margin-top: 100px;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  position: fixed;
+  margin: 0px;
+}
 
 
 .alien {

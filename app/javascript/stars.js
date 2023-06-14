@@ -2,9 +2,10 @@ const stars = document.getElementById('stars');
 const starsCtx = stars.getContext('2d');
 const slider = document.querySelector(".slider input");
 const output = document.querySelector("#speed");
+let speed = 2;
 
 // global variables
-let screen, starsElements, starsParams = { speed: 2, number: 300, extinction: 4 };
+let screen, starsElements, starsParams = { speed: speed, number: 300, extinction: 4 };
 
 // run stars
 setupStars();
@@ -77,3 +78,8 @@ function updateStars() {
     });
     window.requestAnimationFrame(updateStars);
 }
+
+const card = document.querySelector('.spaceship-card')
+card.addEventListener('mouseover', (speed) => {
+  speed = 8;
+});
