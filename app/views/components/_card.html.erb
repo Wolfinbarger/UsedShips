@@ -3,7 +3,7 @@
     <% if spaceship.photo.attached? %>
       <%= cl_image_tag spaceship.photo.key, alt: "text", style:"width: 280px;height: 225px;"%>
     <% else %>
-      <img id="asd" class="card-img-top border border-info p-2" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjYAMwk3TdZw2ihAa3UOjkv25yoZkTN5eDqA&usqp=CAU" alt="Card image cap" style="width: 280px;height: 225px;">
+      <%= image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjYAMwk3TdZw2ihAa3UOjkv25yoZkTN5eDqA&usqp=CAU", class:"card-img-top border border-info p-2", id:"asd", alt:"Default image, Spaceballs", style:"width: 280px;height: 225px;")  %>
     <% end %>
     <div class="card-body pb-0 px-0">
       <div class="container px-2">
