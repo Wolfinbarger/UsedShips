@@ -9,18 +9,18 @@ const starsCtx = stars.getContext('2d');
 // const output = document.querySelector("#speed");
 
 // global variables
-let screen, starsElements, starsParams = { speed: 2, number: 300, extinction: 4 };
+let screen, starsElements, starsParams = { speed: 5, number: 300, extinction: 4 };
 
 // run stars
 setupStars();
 updateStars();
 
 // handle slider
-output.innerHTML = slider.value;
-slider.oninput = function() {
-    output.innerHTML = this.value;
-    starsParams.speed = this.value;
-};
+// output.innerHTML = slider.value;
+// slider.oninput = function() {
+//     output.innerHTML = this.value;
+//     starsParams.speed = this.value;
+// };
 
 // update stars on resize to keep them centered
 window.onresize = function() {
