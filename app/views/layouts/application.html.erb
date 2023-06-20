@@ -9,12 +9,11 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-  <body>
-  <canvas id="stars"></canvas>
+  <body style="background-image: url('https://img.freepik.com/free-photo/starry-night-sky_1048-11828.jpg')">
+  <%# <canvas id="stars"></canvas> %>
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
   </body>
 </html>
- <%# style="background-image: url('https://img.freepik.com/free-photo/starry-night-sky_1048-11828.jpg')" %>
